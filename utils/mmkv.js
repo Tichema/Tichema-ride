@@ -1,4 +1,4 @@
 // storage.js
-import { MMKV } from 'react-native-mmkv';
+// import { MMKV } from 'react-native-mmkv';
 
-export const walletStorage = new MMKV();
+// export const walletStorage = new MMKV();

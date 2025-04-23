@@ -30,7 +30,7 @@ const Onboarding = () => {
           <View className="w-[32px] h-[4px] mx-1 bg-[#E2E8F0] rounded-full" />
         }
         activeDot={
-          <View className="w-[32px] h-[4px] mx-1 bg-[#0286FF] rounded-full" />
+          <View className="w-[32px] h-[4px] mx-1 bg-[#CA8A04] rounded-full" />
         }
         onIndexChanged={(index) => setActiveIndex(index)}
       >

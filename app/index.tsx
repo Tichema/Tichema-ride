@@ -4,7 +4,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { Redirect } from "expo-router";
 import { useActiveAccount, useActiveWallet } from "thirdweb/react";
-import {walletStorage} from "../utils/mmkv"
+// import {walletStorage} from "../utils/mmkv"
 
 const Home = () => {
 
@@ -21,9 +21,9 @@ const Home = () => {
       try{
         // const walletAddress = await AsyncStorage.getItem("walletAddress")
         
-        const walletObject = JSON.parse(walletStorage.getString('walletValue')?? '');
+        // const walletObject = JSON.parse(walletStorage.getString('walletValue')?? '');
         // const walletObject = await AsyncStorage.getItem("walletObject")
-      console.log(walletObject)
+      // console.log(walletObject)
       // console.log(walletAddress)
       // setIsLoggedIn(!!walletAddress)
     }catch{

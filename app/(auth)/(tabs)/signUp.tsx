@@ -27,7 +27,7 @@ import { baseSepolia, ethereum } from "thirdweb/chains";
 import { createAuth } from "thirdweb/auth";
 import { Wallet } from "thirdweb/wallets";
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import {walletStorage} from "../../../utils/mmkv"
+// import {walletStorage} from "../../../utils/mmkv"
 
 const wallets = [
   inAppWallet({
@@ -78,7 +78,7 @@ const handleConnect = async (wallet: Wallet) => {
     console.log("Wallet connected:", wallet);
     // Store wallet address locally
     // Save object
-    walletStorage.set('walletValue', JSON.stringify(wallet));
+    // walletStorage.set('walletValue', JSON.stringify(wallet));
     // const walletValue = JSON.stringify(wallet)
     // console.log(walletValue);
     // await AsyncStorage.setItem("walletObject", walletValue);

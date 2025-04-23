@@ -7,6 +7,26 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { icons } from '@/constants';
+import { Image, ImageSourcePropType, View } from 'react-native';
+
+
+const TabIcon = ({source, focused}:{source : ImageSourcePropType; focused: boolean}) => {
+    return ( 
+        <View className={`flex fle-row justify-center items-center rounded-full
+                ${focused?'bg-general-500':'' }`}>
+            <View className={`rounded-full w-8 h-8 items-center justify-center
+                ${focused? "bg-general-400": ""}`}>
+                <Image
+                source={source}
+                tintColor="black"
+                resizeMode="contain"
+                className='w-5 h-5'
+                />
+            </View>
+        </View>
+    );
+}
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -21,7 +41,7 @@ export default function TabLayout() {
         tabBarStyle: Platform.select({
           ios: {
             // Use a transparent background on iOS to show the blur effect
-            // position: 'absolute',
+            position: 'absolute',
           },
           default: {},
         }),
@@ -30,14 +50,14 @@ export default function TabLayout() {
         name="signUp"
         options={{
           title: 'SignUp',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ focused }) => <TabIcon focused={focused} source={icons.home} />,
         }}
       />
       <Tabs.Screen
         name="signIn"
         options={{
           title: 'SignIn',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ focused }) => <TabIcon focused={focused} source={icons.person} />,
         }}
       />
     </Tabs>
