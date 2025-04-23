@@ -25,6 +25,8 @@ import { createWallet } from "thirdweb/wallets";
 import { baseSepolia, ethereum } from "thirdweb/chains";
 import { createAuth } from "thirdweb/auth";
 import { Wallet } from "thirdweb/wallets";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 
 const wallets = [
@@ -71,18 +73,24 @@ const thirdwebAuth = createAuth({
 let isLoggedIn = false;
 
 const handleConnect = async (wallet: Wallet) => {
-  console.log("Wallet connected:", wallet.id);
+  try {
+    
+    // Get the connected account (if available)
+    const account = await wallet.getAccount?.();
+    console.log("Connected account:", account);
+    
+    // if (account?.address) {
+    //   await AsyncStorage.setItem("walletAddress", account.address);
+    // }
+    // Get the current chain
+    const chain = await wallet.getChain?.();
+    console.log("Current Chain:", chain);
+    
 
-  // Get the connected account (if available)
-  const account = wallet.getAccount?.();
-  console.log("Connected account:", account);
-
-  // Get the current chain
-  const chain = wallet.getChain?.();
-  console.log("Current Chain:", chain);
-
-  // Navigate to the user account section
-  router.replace("/(root)/(tabs)/home");
+    await router.push("/(root)/(maintabs)/home");  // Changed from replace to push
+  } catch (error) {
+    console.error("Error in handleConnect:", error);
+  }
 };
 
 export default function SignUp() {
