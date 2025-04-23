@@ -1,6 +1,7 @@
 import { router } from "expo-router";
 import { Image, StyleSheet, View, useColorScheme } from "react-native";
 import React from 'react'
+import axios from 'axios'
 import  ParallaxScrollView  from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
@@ -25,15 +26,14 @@ import { createWallet } from "thirdweb/wallets";
 import { baseSepolia, ethereum } from "thirdweb/chains";
 import { createAuth } from "thirdweb/auth";
 import { Wallet } from "thirdweb/wallets";
-
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import {walletStorage} from "../../../utils/mmkv"
 
 const wallets = [
   inAppWallet({
     auth: {
       options: [
         "google",
-        "facebook",
-        "telegram",
         "email",
         "phone",
     
@@ -70,23 +70,58 @@ const thirdwebAuth = createAuth({
 // fake login state, this should be returned from the backend
 let isLoggedIn = false;
 
+
+
+
 const handleConnect = async (wallet: Wallet) => {
-  console.log("Wallet connected:", wallet.id);
+  try {
+    console.log("Wallet connected:", wallet);
+    // Store wallet address locally
+    // Save object
+    walletStorage.set('walletValue', JSON.stringify(wallet));
+    // const walletValue = JSON.stringify(wallet)
+    // console.log(walletValue);
+    // await AsyncStorage.setItem("walletObject", walletValue);
 
-  // Get the connected account (if available)
-  const account = wallet.getAccount?.();
-  console.log("Connected account:", account);
+    // Get the connected account (if available)
+    const account = wallet.getAccount?.();
+    if (!account) {
+      console.warn("No account found from wallet.");
+      return;
+    }
 
-  // Get the current chain
-  const chain = wallet.getChain?.();
-  console.log("Current Chain:", chain);
+    const res = await axios.post(`${process.env.EXPO_PUBLIC_SERVER_URI}/registerUser`, {
+      account,
+    });
 
-  // Navigate to the user account section
-  router.replace("/(root)/(tabs)/home");
+    // console.log("Account registered:", res.data.walletAddress);
+    console.log("Account registered:", res.data.user.walletAddress);
+    const userAddress = res.data.user.walletAddress;
+
+    // Store wallet address locally
+    await AsyncStorage.setItem("walletAddress", userAddress);
+
+    console.log("Connected account:", account);
+    router.replace("/(root)/(maintabs)/home");
+
+    // Get the wallet config
+    // const userConfig = wallet.getConfig();
+    // console.log("connect account:", userConfig);
+
+    // Get the current chain
+    // const chain = wallet.getChain?.();
+    // console.log("Current Chain:", chain);
+
+  } catch (error) {
+    console.error("Error during wallet connection or registration:", error);
+  }
 };
+
 
 export default function SignUp() {
   const account = useActiveAccount();
+  const wallet = useActiveWallet();
+
   const theme = useColorScheme();
   return (
     <ParallaxScrollView

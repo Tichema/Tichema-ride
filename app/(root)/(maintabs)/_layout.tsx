@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router';
 import { Image, ImageSourcePropType, View } from 'react-native';
 import { icons } from '@/constants';
 
-const TabIcon = ({source, focused}:{source : ImageSourcePropType, focused: boolean}) => {
+const TabIcon = ({source, focused}:{source : ImageSourcePropType; focused: boolean}) => {
     return ( 
         <View className={`flex fle-row justify-center items-center rounded-full
                 ${focused?'bg-general-300':'' }`}>
@@ -20,8 +20,8 @@ const TabIcon = ({source, focused}:{source : ImageSourcePropType, focused: boole
 }
 
 const TabLayout =() => {
-    <Tabs
-    initialRouteName='index'
+    return (<Tabs
+    initialRouteName='home'
     screenOptions={{
         tabBarActiveTintColor : "white",
         tabBarInactiveTintColor: "white",
@@ -29,7 +29,7 @@ const TabLayout =() => {
         tabBarStyle :{
             backgroundColor: "#333333",
             borderRadius :50,
-            paddingBottom : 0,
+            paddingBottom : 25,
             overflow : "hidden",
             marginHorizontal : 20,
             marginBottom: 20,
@@ -84,6 +84,7 @@ const TabLayout =() => {
         />
 
     </Tabs>
+    )
 
 }
 

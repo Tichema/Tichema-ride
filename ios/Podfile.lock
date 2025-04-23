@@ -11,7 +11,7 @@ PODS:
     - ExpoModulesCore
   - EXConstants (17.0.7):
     - ExpoModulesCore
-  - Expo (52.0.36):
+  - Expo (52.0.37):
     - ExpoModulesCore
   - ExpoAsset (11.0.4):
     - ExpoModulesCore
@@ -26,8 +26,6 @@ PODS:
   - ExpoHead (4.0.17):
     - ExpoModulesCore
   - ExpoKeepAwake (14.0.3):
-    - ExpoModulesCore
-  - ExpoLinking (7.0.5):
     - ExpoModulesCore
   - ExpoModulesCore (2.2.2):
     - DoubleConversion
@@ -66,7 +64,7 @@ PODS:
   - hermes-engine (0.76.7):
     - hermes-engine/Pre-built (= 0.76.7)
   - hermes-engine/Pre-built (0.76.7)
-  - OpenSSL-Universal (3.3.2000)
+  - OpenSSL-Universal (3.3.3000)
   - RCT-Folly (2024.01.01.00):
     - boost
     - DoubleConversion
@@ -1971,7 +1969,6 @@ DEPENDENCIES:
   - ExpoHaptics (from `../node_modules/expo-haptics/ios`)
   - ExpoHead (from `../node_modules/expo-router/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
-  - ExpoLinking (from `../node_modules/expo-linking/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
   - ExpoSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - ExpoSymbols (from `../node_modules/expo-symbols/ios`)
@@ -2090,8 +2087,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-router/ios"
   ExpoKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
-  ExpoLinking:
-    :path: "../node_modules/expo-linking/ios"
   ExpoModulesCore:
     :path: "../node_modules/expo-modules-core"
   ExpoSplashScreen:
@@ -2263,7 +2258,7 @@ SPEC CHECKSUMS:
   DoubleConversion: f16ae600a246532c4020132d54af21d0ddb2a385
   EXApplication: 27a524f5c3e671c6218220fba04752629466a1a9
   EXConstants: 0472d3c23d97943fe3505306daf9cde8024365c2
-  Expo: 8a2753e86ee7c1943ca0975b643d73ed03b113a1
+  Expo: f1d13d22815979ad85a0a59fcf6d23660c813ecd
   ExpoAsset: a4cbc27a7cd24a6e87eb719603790b2cfa8dd326
   ExpoBlur: 567af66164e3043a9a30069594aed1ddf0a88d97
   ExpoFileSystem: 4d2e7f77a41cfde8c3ae98580d872cd49437f993
@@ -2271,7 +2266,6 @@ SPEC CHECKSUMS:
   ExpoHaptics: e01cce0741d68c281853118eb0267f88d42c6b7a
   ExpoHead: 3d555eb5d0d68c478b9ea259337686c58de22c71
   ExpoKeepAwake: 2a5f15dd4964cba8002c9a36676319a3394c85c7
-  ExpoLinking: 0381341519ca7180a3a057d20edb1cf6a908aaf4
   ExpoModulesCore: 561a787bc626ab9bcfee2a688bd588bf2667405f
   ExpoSplashScreen: 643666b96a84e8d97d55fac43926fb4183c692d9
   ExpoSymbols: b9f255ce49868d46a73f30e12859efeb8117bcad
@@ -2281,7 +2275,7 @@ SPEC CHECKSUMS:
   fmt: 10c6e61f4be25dc963c36bd73fc7b1705fe975be
   glog: 08b301085f15bcbb6ff8632a8ebaf239aae04e6a
   hermes-engine: eb4a80f6bf578536c58a44198ec93a30f6e69218
-  OpenSSL-Universal: b60a3702c9fea8b3145549d421fdb018e53ab7b4
+  OpenSSL-Universal: d776ce24dab24323e6995dfb17c64d598885d05c
   RCT-Folly: bf5c0376ffe4dd2cf438dcf86db385df9fdce648
   RCTDeprecation: 7691283dd69fed46f6653d376de6fa83aaad774c
   RCTRequired: eac044a04629288f272ee6706e31f81f3a2b4bfe
