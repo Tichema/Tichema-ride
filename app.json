@@ -9,6 +9,10 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to show nearby places.",
+        "NSLocationAlwaysUsageDescription": "This app uses your location even when the app is in the background."
+      },
       "supportsTablet": true,
       "bundleIdentifier": "com.wanoh1.TichemaUber"
     },

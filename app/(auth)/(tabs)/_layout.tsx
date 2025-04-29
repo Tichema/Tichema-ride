@@ -14,7 +14,7 @@ import { Image, ImageSourcePropType, View } from 'react-native';
 const TabIcon = ({source, focused}:{source : ImageSourcePropType; focused: boolean}) => {
     return ( 
         <View className={`flex fle-row justify-center items-center rounded-full
-                ${focused?'bg-general-500':'' }`}>
+                ${focused?'bg-general-900':'' }`}>
             <View className={`rounded-full w-8 h-8 items-center justify-center
                 ${focused? "bg-general-400": ""}`}>
                 <Image

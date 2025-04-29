@@ -139,10 +139,9 @@ export default function SignUp() {
       
       <View style={{ height: 16 }} />
       <View style={{ gap: 2 }}>
-        <ThemedText type="subtitle">{`<ConnectEmbed />`}</ThemedText>
+        {/* <ThemedText type="subtitle">{`<ConnectEmbed />`}</ThemedText> */}
         <ThemedText type="subtext">
-          Embeddable connection component in any screen. Example below is
-          configured with a specific list of EOAs + SIWE.
+          Signup and get started with the Tichema
         </ThemedText>
       </View>
       <ConnectEmbed
