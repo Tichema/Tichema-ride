@@ -1,0 +1,83 @@
+import 'dotenv/config';
+
+export default {
+  expo: {
+    name: "3ride",
+    slug: "3ride",
+    version: "1.0.0",
+    orientation: "portrait",
+    icon: "./assets/images/icon.png",
+    scheme: "3drive",
+    userInterfaceStyle: "automatic",
+    splash: {
+      image: "./assets/images/splash.png",
+      imageWidth: 200,
+      resizeMode: "contain",
+      backgroundColor: "#ffffff"
+    },
+    newArchEnabled: true,
+    ios: {
+      supportsTablet: true,
+      bundleIdentifier: "com.wanoh1.x3ride",
+      infoPlist: {
+        NSLocationWhenInUseUsageDescription: "This app uses your location to show nearby places.",
+        NSLocationAlwaysUsageDescription: "This app uses your location even when the app is in the background."
+      }
+    },
+    android: {
+      adaptiveIcon: {
+        foregroundImage: "./assets/images/adaptive-icon.png",
+        backgroundColor: "#ffffff"
+      },
+      edgeToEdgeEnabled: true,
+      package: "com.wanoh1.x3ride",
+      googleServicesFile: "./google-services.json",
+      permissions: [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      config: {
+        googleMaps: {
+          apiKey: process.env.EXPO_PUBLIC_GOOGLE_API_KEY
+        }
+      }
+    },
+    web: {
+      bundler: "metro",
+      output: "static",
+      favicon: "./assets/images/favicon.png"
+    },
+    plugins: [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          image: "./assets/images/splash.png",
+          imageWidth: 200,
+          resizeMode: "contain",
+          backgroundColor: "#ffffff"
+        }
+      ],
+      ["expo-location"],
+      "expo-font",
+      "expo-secure-store"
+    ],
+    experiments: {
+      typedRoutes: true
+    },
+    extra: {
+      eas: {
+        projectId: "0aa07549-68fc-4094-83e9-40f2a4ba914d"
+      },
+      // You can pass env values here too if needed
+      clerkPublishableKey: process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY,
+      googleCloudKey: process.env.EXPO_PUBLIC_GOOGLE_CLOUD_API_KEY,
+      serverUri: process.env.EXPO_PUBLIC_SERVER_URI
+    },
+    owner: "wanoh1"
+  }
+}
